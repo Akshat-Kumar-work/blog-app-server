@@ -1,5 +1,6 @@
 //express imported
 const express = require("express");
+
 //server created
 const server = express();
 

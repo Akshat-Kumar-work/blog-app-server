@@ -4,25 +4,26 @@ const postSchema = new mongoose.Schema({
     //title hoga 
     title:{
         type:String,
-        requied :true
+        required:true,
     },
     body:{
         type:String,
         required:true,
     },
     likes: [{
-        //likes ka type hodi object ki id
+        //likes ka type hogi object ki id
         type: mongoose.Schema.Types.ObjectId,
         //id k li reference de rhe hai object ka 
-        ref:"Like"
+        ref:"Like",
     }],
     comments: [{
         //comments ka type hogi object ki id 
         type: mongoose.Schema.Types.ObjectId,
         //id k li reference de rhe hai object ka 
-        ref:"Comment"
+        ref:"Comment",
     }]
 })
 
 
-module.exports = mongoose.model("Post",postSchema);
+ module.exports = mongoose.model("Post",postSchema);
+

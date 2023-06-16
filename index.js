@@ -25,6 +25,7 @@ server.listen(PORT,()=>{
     console.log("SERVER STARTED");
 });
 
+
 server.get("/",(req,res)=>{
     res.send("server default page")
 });

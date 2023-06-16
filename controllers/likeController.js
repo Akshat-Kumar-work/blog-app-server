@@ -31,6 +31,7 @@ const Post = require("../models/postModel");
 
            const deleteLike = await Like.findOneAndDelete({post:post, _id:like});
             //post m likes vale array m deleteLike ki id ko delete krna hai pull ki help se delete hoga
+            //find krne k lie post pass krdi aur update krne k lie pull 
            const updatedPost = await Post.findByIdAndUpdate(post ,{$pull: {likes:deleteLike._id}} , {new: true})
 
     

@@ -25,5 +25,28 @@ const Post = require("../models/postModel");
         }
     }
 
+    exports.unlikePost = async (req , res)=>{
+        try{
+            const { post , like } = req.body;
+
+           const deleteLike = await Like.findOneAndDelete({post:post, _id:like});
+            //post m likes vale array m deleteLike ki id ko delete krna hai pull ki help se delete hoga
+           const updatedPost = await Post.findByIdAndUpdate(post ,{$pull: {likes:deleteLike._id}} , {new: true})
+
+    
+            
+            res.json({
+                post : updatedPost,
+                message:"unlike succesfully"
+            });
+        }
+        catch(err){
+            console.log(err)
+            return  res.status(400).json({
+                 error: "error while fetching the post",
+             })
+        }
+    }
+
 
 
